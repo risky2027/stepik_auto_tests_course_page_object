@@ -14,3 +14,11 @@ class LoginPageLocators():
     PASSWORD_INPUT_FOR_REG = (By.CSS_SELECTOR, "[name='registration-password1']")
     PASSWORD_INPUT_FOR_CONFIRM_REG = (By.CSS_SELECTOR, "[name='registration-password2']")
     REG_BUTTON = (By.TAG_NAME, "[name='registration_submit']")
+
+
+class BookPageLocators():
+    BUTTON_BASKET = (By.CSS_SELECTOR, ".btn-add-to-basket")
+    PRICE_PRODUCT_BEFORE = (By.CSS_SELECTOR, "p.price_color")
+    NAME_PRODUCT_BEFORE = (By.CSS_SELECTOR, ".col-sm-6.product_main h1")
+    PRICE_PRODUCT_AFTER = (By.XPATH, "//div[@class='alertinner ']/p[1]/strong")
+    NAME_PRODUCT_AFTER = (By.XPATH, "//div[@class='alertinner ']/strong[1]")
