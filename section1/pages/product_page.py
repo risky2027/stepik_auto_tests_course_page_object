@@ -7,14 +7,12 @@ class ProductPage(BasePage):
         link = self.browser.find_element(*BookPageLocators.BUTTON_BASKET)
         link.click()
 
-    def get_name_product_before(self):
-        return self.browser.find_element(*BookPageLocators.NAME_PRODUCT_BEFORE).text
+    def check_names_products(self):
+        product_name_before = self.browser.find_element(*BookPageLocators.NAME_PRODUCT_BEFORE).text
+        product_name_after = self.browser.find_element(*BookPageLocators.NAME_PRODUCT_AFTER).text
+        assert product_name_before == product_name_after, "Названия продуктов разные"
 
-    def get_price_product_before(self):
-        return self.browser.find_element(*BookPageLocators.PRICE_PRODUCT_BEFORE).text
-
-    def get_name_product_after(self):
-        return self.browser.find_element(*BookPageLocators.NAME_PRODUCT_AFTER).text
-
-    def get_price_product_after(self):
-        return self.browser.find_element(*BookPageLocators.PRICE_PRODUCT_AFTER).text
+    def check_prices_products(self):
+        product_price_before = self.browser.find_element(*BookPageLocators.PRICE_PRODUCT_BEFORE).text
+        product_price_after = self.browser.find_element(*BookPageLocators.PRICE_PRODUCT_AFTER).text
+        assert product_price_before == product_price_after, "Цены продуктов разные"
