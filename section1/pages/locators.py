@@ -16,7 +16,7 @@ class LoginPageLocators():
     REG_BUTTON = (By.TAG_NAME, "[name='registration_submit']")
 
 
-class BookPageLocators():
+class ProductPageLocators():
     BUTTON_BASKET = (By.CSS_SELECTOR, ".btn-add-to-basket")
     PRICE_PRODUCT_BEFORE = (By.CSS_SELECTOR, "p.price_color")
     NAME_PRODUCT_BEFORE = (By.CSS_SELECTOR, ".col-sm-6.product_main h1")
