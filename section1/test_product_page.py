@@ -5,6 +5,7 @@ import pytest
 import time
 
 
+@pytest.mark.adding_to_basket
 class TestUserAddToBasketFromProductPage():
     @pytest.fixture(scope="function", autouse=True)
     def test_setup(self, browser):
@@ -27,6 +28,7 @@ class TestUserAddToBasketFromProductPage():
         product_page.solve_quiz_and_get_code()
         product_page.should_not_be_success_message()
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
         page = ProductPage(browser, link)
@@ -38,19 +40,9 @@ class TestUserAddToBasketFromProductPage():
         product_page.check_prices_products()
 
 
-@pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
-                                  "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
-                                  "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer2",
-                                  "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer3",
-                                  "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer4",
-                                  "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer5",
-                                  "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer6",
-                                  "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer7",
-                                  "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
-                                  "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9",
-                                  pytest.param("bugged_link", marks=pytest.mark.xfail),
-                                  "okay_link"])
-def test_guest_can_add_product_to_basket(browser, link):
+@pytest.mark.need_review
+def test_guest_can_add_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
     page = ProductPage(browser, link)
     page.open()
     product_page = ProductPage(browser, browser.current_url)
@@ -60,6 +52,7 @@ def test_guest_can_add_product_to_basket(browser, link):
     product_page.check_prices_products()
 
 
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
@@ -85,6 +78,7 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser, 
     product_page.should_not_be_success_message()
 
 
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
@@ -110,5 +104,3 @@ def test_message_disappeared_after_adding_product_to_basket(browser, link):
     product_page.solve_quiz_and_get_code()
     time.sleep(1)
     product_page.should_disappeared_success_message()
-
-
