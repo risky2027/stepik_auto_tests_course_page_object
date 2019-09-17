@@ -5,10 +5,11 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     BASKET_LINK = (By.XPATH, "//*[@id='default']/header/div[1]/div/div[2]/span/a")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
-class MainPageLocators():
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+class BasketPageLocators():
+    COUNT_PRODUCTS_IN_BASKET = (By.CSS_SELECTOR, "#content_inner p")
 
 
 class LoginPageLocators():
@@ -22,6 +23,10 @@ class LoginPageLocators():
     REG_BUTTON = (By.TAG_NAME, "[name='registration_submit']")
 
 
+class MainPageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+
+
 class ProductPageLocators():
     BUTTON_BASKET = (By.CSS_SELECTOR, ".btn-add-to-basket")
     PRICE_PRODUCT_BEFORE = (By.CSS_SELECTOR, "p.price_color")
@@ -29,6 +34,3 @@ class ProductPageLocators():
     PRICE_PRODUCT_AFTER = (By.XPATH, "//div[@class='alertinner ']/p[1]/strong")
     NAME_PRODUCT_AFTER = (By.XPATH, "//div[@class='alertinner ']/strong[1]")
 
-
-class BasketPageLocators():
-    COUNT_PRODUCTS_IN_BASKET = (By.CSS_SELECTOR, "#content_inner p")
